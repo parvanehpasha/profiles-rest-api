@@ -25,3 +25,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
         )
 
         return user
+
+
+class ProfileFeedItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.ProfileFeedItem
+        fields = ('id', 'status_text', 'create_on', 'user_profile')
+    user_profile = {
+        'user_profile': {'read_only': True}
+    }
